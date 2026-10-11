@@ -1,5 +1,5 @@
 import { Client, Account, ID} from "appwrite";
-import config from "../config/config.js"
+import conf from "../conf/conf.js"
 
 export class AuthService {
     client = new Client();
@@ -7,14 +7,14 @@ export class AuthService {
 
     constructor(){
         this.client
-            .setEndpoint(config.appwriteUrl)
-            .setProject(config.appwriteProjectId);
+            .setEndpoint(conf.appwriteUrl)
+            .setProject(conf.appwriteProjectId);
         this.account = new Account(this.client);
     }
 
     async createAccount({email, password, name}){
         try{
-            const userAccount = await this.account.create({userId: ID.unique(), email, password, name});
+            const userAccount = await this.account.create(ID.unique(), email, password, name);
             if(userAccount){
                 return this.login({email, password});
             }
@@ -28,7 +28,7 @@ export class AuthService {
 
     async login({email, password}){
         try {
-            return await this.account.createEmailPasswordSession({email, password});
+            return await this.account.createEmailPasswordSession(email, password);
         } catch (error) {
             throw error;
         }
@@ -57,7 +57,7 @@ const authService = new AuthService();
 export default authService
 
 
-// Client is the connection to the Appwrite project. The constructor points it at the project using the URL and project ID from the config file.
+// Client is the connection to the Appwrite project. The constructor points it at the project using the URL and project ID from the conf file.
 // Account is Appwrite's built-in tool for user accounts, and it uses that connection.
 // createAccount: makes a new user with an email, password, and name. ID.unique() asks Appwrite to generate a unique ID. If the account is created, it immediately logs the user in so they don't have to sign in again.
 // login: creates a session for the user (a "you're logged in" pass) using their email and password.
