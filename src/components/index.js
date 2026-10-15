@@ -9,4 +9,16 @@ import Select from "./Select.jsx";
 import PostCard from "./PostCard.jsx";
 import Login from "./Login.jsx";
 
-export { Header, LogoutBtn, Footer, Container, Logo, Button, Input, Select, PostCard, Login };
+export { 
+    Header,
+    LogoutBtn,
+    Footer,
+    Container,
+    Logo, 
+    Button, 
+    Input, 
+    Select, 
+    PostCard, 
+    Login,
+    
+};
