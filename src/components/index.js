@@ -2,7 +2,7 @@ import Header from "./Header/Header";
 import LogoutBtn from "./Header/LogoutBtn.jsx";
 import Footer from "./Footer/Footer";
 import Container from "./Container/Container.jsx";
-import postForm from "./postForm/postForm.jsx";
+import PostForm from "./PostForm/PostForm.jsx"
 import Logo from "./Logo.jsx";
 import Button from "./Button.jsx";
 import Input from "./input.jsx";
@@ -27,5 +27,5 @@ export {
     Signup,
     Authlayout,
     RTE,
-    postForm
+    PostForm
 };
