@@ -121,7 +121,7 @@ function PostForm({post}){
                 <Button
                     type="submit"
                     bgColor={post ? "bg-green-500": undefined}
-                    className="w-full cursor-pointer hover:bg-blue-800 rounded-full"
+                    className="w-full cursor-pointer hover:bg-green-600 rounded-full"
                     >{post ? "Update": "Submit"}
                 </Button>
             </div>
